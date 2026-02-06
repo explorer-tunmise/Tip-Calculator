@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" href="ageCalculator.css">
+    <script src="age.js" defer></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center">
+
+    <div class="max-w-2xl w-full">
+        <div class="gap-6 w-full flex flex-col p-4 sm:p-6 bg-white/40 rounded-2xl shadow-2xl">
+            <h1 class="text-center text-3xl text-blue-800 font-semibold">Age Calculator</h1>
+
+            <div class="w-full flex justify-between">
+                <label for="birthdate" id="birthdate-label"
+                    class="text-blue-800 text-xl font-semibold">Birthdate:</label>
+                <input id="birthdate" type="date" class="bg-white/60 px-4 outline-0 py-1 text-gray-500"
+                    placeholder="Select your birthdate">
+            </div>
+            <div class="w-full flex justify-between">
+                <label for="age-result" id="age-result-label" class="text-blue-800 text-xl font-semibold">Your
+                    Age:</label>
+                <input id="age-result" type="text" class="bg-white/60 px-4 outline-0 py-1 text-gray-500"
+                    placeholder="Your age will be displayed here" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
