@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+</head>
+<script src="index.js" defer></script>
+<title>Modal Window</title>
+</head>
+
+<body class="bg-[#60b347]">
+    <div class="flex justify-center gap-6 pt-10">
+        <button id="button" class="px-10 py-4 rounded-4xl text-black text-xl font-medium bg-white">Show modal
+            1</button>
+        <button id="button" class="px-10 py-4 rounded-4xl text-black text-xl font-medium bg-white">Show modal
+            2</button>
+        <button id="button" class="px-10 py-4 rounded-4xl text-black text-xl font-medium bg-white">Show modal
+            3</button>
+    </div>
+
+    <div id="modal"
+        class="px-18 hidden py-10 bg-white absolute top-1/2 left-1/2 w-[45%] mt-6 -translate-x-1/2 -translate-y-1/2 shadow-2xl rounded-[5px] z-1001">
+        <button id="close-modal" class="text-4xl ml-auto block text-red-500"><i class="ph ph-x"></i></button>
+        <h1 class="text-center font-bold text-2xl">I am a modal window </h1>
+        <p class="text-justify text-[14px]">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quibusdam
+            fugit quis. Cupiditate minus
+            deleniti illum maxime explicabo consequatur ipsa nemo asperiores natus qui unde, laboriosam incidunt
+            similique aliquam modi? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam error inventore rem,
+            doloribus autem eos accusamus culpa veniam earum! Amet odit necessitatibus ea ab dolorum iste? Officiis est
+            vero autem. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia sequi hic modi enim, doloribus
+            dolorem repellendus ratione inventore vitae, vero voluptas exercitationem nobis pariatur atque iste esse id,
+            officiis in. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet commodi nisi doloremque
+            libero nihil corporis deleniti magnam nemo. Nobis, iusto enim. Magni sint, iure rem assumenda voluptatem
+            debitis accusamus necessitatibus.</p>
+    </div>
+
+    <div id="overlay" class=" z-1000 bg-black/50  justify-center items-center hidden fixed top-0 left-0 w-full h-full">
+    </div>
+
+</body>
+
+</html>

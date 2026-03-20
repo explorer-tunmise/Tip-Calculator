@@ -11,33 +11,34 @@
 </head>
 <body class="flex items-center justify-center min-h-screen">
     <div class="max-w-sm w-full py-6 bg-black rounded-2xl px-4">
-        <div id="result-display" class="h-24 bg-white text-left font-bold text-2xl"></div>
+        <div id="result-display" class="h-24 bg-white text-left font-bold text-2xl p-2">
+
+        </div>
         <div class=" mt-4 grid gap-x-3 gap-y-4 grid-cols-4 px-3">
-            <button id="on-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">ON</button>
-            <button id="off-btn" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">OFF</button>
-            <button id="erase-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">⌫</button>
-            <button id="percentage-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">%</button>
+            <button id="on-btn"  class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">ON</button>
+            <button id="off-btn" value="off" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">OFF</button>
+            <button id="erase-btn" value="erase" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">⌫</button>
+            <button id="clear-btn" value="clear" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">C</button>
 
-            <button id="seven-btn" class="bg-white font-semibold text-black max-w-20 h-12 rounded-full">7</button>
-            <button id="eight-btn" class="bg-white font-semibold text-black max-w-20 h-12 rounded-full">8</button>
-            <button id="nine-btn" class="bg-white font-semibold text-black max-w-20 h-12 rounded-full">9</button>
-            <button id="multiply-btn" class="bg-blue-50 font-semibold text-blue-600 max-w-20 h-12 rounded-full">✖</button>
+            <button id="number-btn" value="7" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">7</button>
+            <button id="number-btn" value="8" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">8</button>
+            <button id="number-btn" value="9" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">9</button>
+            <button id="operator-btn" value="*" class="bg-blue-50 font-semibold text-blue-600 max-w-20 h-12 rounded-full text-2xl">×</button>
 
-            <button id="on-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">ON</button>
-            <button id="off-btn" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">OFF</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">⌫</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">%</button>
+            <button id="number-btn" value="4" class="bg-white font-semibold text-black max-w-20 h-12 rounded-full text-2xl">4</button>
+            <button id="number-btn" value="5" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">5</button>
+            <button id="number-btn" value="6" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">6</button>
+            <button id="operator-btn" value="/" class="bg-blue-50 text-2xl font-semibold text-blue-600 max-w-20 h-12 rounded-full">÷</button>
 
-            <button id="on-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">ON</button>
-            <button id="off-btn" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">OFF</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">⌫</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">%</button>
+            <button id="number-btn" value="1" class="bg-white font-semibold text-2xl text-black max-w-20 h-12 rounded-full">1</button>
+            <button id="number-btn" value="2" class="bg-white font-semibold text-2xl text-black max-w-20 h-12 rounded-full">2</button>
+            <button id="number-btn" value="3" class="bg-white text-2xl font-semibold text-black max-w-20 h-12 rounded-full">3</button>
+            <button id="operator-btn" value="-" class="bg-blue-50 font-semibold text-blue-600 max-w-20 h-12 rounded-full text-2xl">−</button>
 
-            <button id="on-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">ON</button>
-            <button id="off-btn" class="bg-white font-semibold text-red-600 max-w-20 h-12 rounded-full">OFF</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">⌫</button>
-            <button id="off-btn" class="bg-white font-semibold text-green-600 max-w-20 h-12 rounded-full">%</button>
-
+            <button id="number-btn" value="0" class="bg-white font-semibold text-2xl text-black max-w-20 h-12 rounded-full">0</button>
+            <button id="decimal-btn" value="." class="bg-white font-semibold text-2xl flex justify-center items-center text-black max-w-20 h-12 rounded-full">.</button>
+            <button id="equals-btn" value="=" class="bg-blue-50 text-2xl font-semibold text-blue-600 max-w-20 h-12 rounded-full">=</button>
+            <button id="operator-btn" value="+" class="bg-blue-50 font-semibold text-2xl text-blue-600 max-w-20 h-12 rounded-full">+</button>
         </div>
     </div>
 </body>

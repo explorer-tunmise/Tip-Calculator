@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../src/output.css">
+    <script src="index.js" defer></script>
+    <title>Guess My Number</title>
+</head>
+
+<body class="bg-black">
+    <section class=" min-h-screen">
+        <div class="flex justify-between w-full p-8">
+            <button class="bg-white text-black py-2 px-4 font-bold text-2xl" id="reset-button">Again!</button>
+            <p class="text-white">(Between 1 and 20)</p>
+        </div>
+
+        <h1 class="text-center sm:text-6xl text-4xl text-white mt-10 ">GUESS MY NUMBER !</h1>
+        <div class="mt-10 flex flex-col">
+            <hr class="bg-white h-2.5 ">
+            <div
+                class="w-20 h-20 bg-white mx-auto text-black text-5xl flex justify-center items-center font-bold text-center" id="right-number">
+                ?</div>
+        </div>
+
+        <div class="flex sm:justify-around justify-between sm:px-10 px-4 sm:mt-10 mt-5">
+            <input id="user-input" type="number" class="border border-white outline-0 sm:w-48 w-30 sm:py-6 py-1 block text-center text-5xl text-white">
+            <p id="message" class="text-white font-medium text-xl"> 🎉 Start guessing....</p>
+        </div>
+
+        <div class="flex sm:justify-around justify-between sm:px-10 px-4 mt-10">
+            <button class="bg-white text-black py-2 px-4 font-bold text-2xl" id="check-button">Check!</button>
+            <div>
+                <p id="label-score" class="text-white text-xl">💯 score: <span id="score">20</span></p>
+                <p id="label-highscore" class="text-white text-xl">🥇 Highscore: <span id="highscore">0</span></p>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
