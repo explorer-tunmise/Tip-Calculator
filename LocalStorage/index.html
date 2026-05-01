@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage</title>
+
+    <style>
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: white;
+        }
+
+        .light-theme {
+            background-color: #f4f4f4;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+
+    <script>
+        const currentTheme = localStorage.getItem("theme"); //getting the theme from local Storage
+        //This ensures that it is user's preference previously stored that is selected
+
+        // This basically sets the initial theme of the page to the theme stored in local storage, if there is no theme stored in local storage, it sets the theme to light-theme
+        if(currentTheme) {
+            document.body.classList.add(currentTheme); //this applies the theme to the body element
+        } else {
+            document.body.classList.add("light-theme"); //this ensures that if there is no theme in local storage, the default theme is light-theme
+        }
+
+        function toggleTheme() {
+            if(document.body.classList.contains("light-theme")) {
+                document.body.classList.replace("light-theme", "dark-theme");
+                localStorage.setItem("theme", "dark-theme"); //this stores the theme in local storage
+            } else {
+                document.body.classList.replace("dark-theme", "light-theme");
+                localStorage.setItem("theme", "light-theme"); //this stores the theme in local storage
+            }
+        }
+    </script>
+</body>
+</html>

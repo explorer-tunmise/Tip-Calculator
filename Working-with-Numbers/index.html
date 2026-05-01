@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+
+</head>
+
+<body class="bg-blue-700 max-h-screen h-screen">
+    <section class="max-w-6xl w-full mx-auto ">
+        <div class="bg-white rounded-xl flex justify-between align-middle p-6">
+            <h1 id="heading">International Expense Tracker</h1>
+            <div class="flex gap-4">
+                <select name="language" id="language" class="border rounded-xs p-1">
+                    <option value="english">us English (US)</option>
+                    <option value="japan">Japanese (JP)</option>
+                    <option value="french">French (FR)</option>
+                </select>
+
+                <select name="currency" id="currency" class="border rounded-xs p-1>
+                    <option value=" usd">US Dollar (USD)</option>
+                    <option value="eur">Euro (EUR)</option>
+                    <option value="gbp">British Pound (GBP)</option>
+                </select>
+
+                <select name="city" id="city" class="border rounded-xs p-1>
+                    <option value=" newyork">New York</option>
+                    <option value="london">London</option>
+                    <option value="tokyo">Tokyo</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="flex flex-col bg-white p-6 rounded-xl justify-center items-center">
+                <p>Current Time</p>
+                <p id="time">00:00:00 AM</p>
+                <p id="date">N/A</p>
+            </div>
+            <div class="flex flex-col bg-white p-6 rounded-xl justify-center items-center">
+                <p>Total Expenses</p>
+                <p id="total-expenses">$0.00</p>
+                <p id="number-expense">0 expense</p>
+            </div>
+        </div>
+
+        <form action="" class="flex flex-col mt-6 bg-white p-6 rounded-xl">
+            <p>Add Expense</p>
+            <label for="description" class="mb-1">Description</label>
+            <input type="text" name="description" class="border outline-none rounded-xs p-1"
+                placeholder="e.g. Lunch at cafe" required>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex flex-col">
+                    <label for="amount" class="mb-1 mt-4">Amount</label>
+                    <input type="number" name="amount" class="border outline-none rounded-xs p-1" placeholder="0.00"
+                        required>
+                </div>
+
+                <div class="flex flex-col">
+                    <label for="category" class="mb-1 mt-4">Category</label>
+                    <select name="category" id="category" class="border rounded-xs p-1">
+                        <option value="food">Food</option>
+                        <option value="transportation">Transportation</option>
+                        <option value="entertainment">Entertainment</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="date" class="mb-1 mt-4">Date</label>
+                <input type="date" name="date" class="border outline-none rounded-xs p-1" required>
+            </div>
+
+            <button class="bg-blue-500 text-white border-0 p-4 rounded-xl mt-4" id="add-expense">Add Expense</button>
+        </form>
+    </section>
+</body>
+
+</html>

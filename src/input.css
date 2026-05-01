@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+
+/* @layer utilities {
+  .playing {
+    background-color: #fde047;
+  }
+
+  .not-playing {
+    background-color: #fef9c3;
+  }
+} */

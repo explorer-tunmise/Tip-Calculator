@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../src/output.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+
+    <script src="index.js" defer></script>
+</head>
+
+<body class="bg-amber-950 text-white flex items-center justify-center min-h-screen">
+    <div class="flex flex-col gap-4 absolute z-20 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <button id="new-game" class="py-2.5 mb-4 sm:px-10 px-4 rounded-3xl  bg-white/90 text-black text-xs">NEW GAME</button>
+        <div id="dice-simulator"  class="sm:h-16 hidden flex sm:w-16 w-12 h-12 sm:mt-4  sm:mb-12 mb-5 mx-auto text-black text-xs bg-white/95  items-center justify-center">?</div>
+        <button class="py-2.5 sm:px-10 px-4 rounded-3xl  bg-white/95 text-black text-xs" id="roll-dice">ROLL DICE</button>
+        <button class="py-2.5 sm:px-10 px-4 rounded-3xl  bg-white/95 text-black text-xs" id="hold">HOLD</button>
+    </div>
+
+    <div class="grid grid-cols-2 sm:max-w-3xl w-full mx-4 rounded-lg shadow-2xl">
+        <div id="card_0" class="flex flex-col items-center gap-2 py-14 px-4 bg-amber-300 text-amber-950 rounded-tl-md rounded-bl-md">
+            <h1 class="font-bold sm:text-3xl text-xl text-white">PLAYER 1</h1>
+            <span id="total_0" class="font-bold sm:text-6xl text-4xl text-white">0</span>
+            <div class="flex flex-col items-center sm:px-12 px-4 sm:py-4 py-2 mt-24 bg-amber-950 rounded-md mx-auto" >
+                <p class="text-white sm:text-xl text-xs font-light">CURRENT</p>
+                <span id="current_score_0" class="text-white text-2xl">0</span>
+            </div>
+        </div>
+
+        <div id="card_1" class="flex flex-col items-center gap-2 py-14 bg-amber-200 text-amber-950 rounded-tr-md rounded-br-md">
+            <h1 class="font-bold sm:text-3xl text-xl text-white">PLAYER 2</h1>
+            <span id="total_1" class="font-bold sm:text-6xl text-4xl text-white">0</span>
+            <div class="flex flex-col items-center sm:px-12 px-4 sm:py-4 py-2 mt-24 bg-amber-950 rounded-md mx-auto" >
+                <p class="text-white sm:text-xl text-xs font-light">CURRENT</p>
+                <span id="current_score_1" class="text-white text-2xl">0</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
