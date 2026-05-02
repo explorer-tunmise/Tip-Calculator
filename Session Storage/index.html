@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Storage</title>
+
+    <style>
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Session Storage</h1>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name">
+
+    <button onclick="saveName()">Save Name</button>
+    <p id="nameDisplay"></p>
+
+    <script>
+        let userName = sessionStorage.getItem("name"); //getting the name from session storage
+        if(userName) {
+            displayName(); //displaying the name on the page if there is a name in session storage
+        }
+
+        function saveName() {
+            const name = document.getElementById("name").value; //getting the value of the input field
+            sessionStorage.setItem("name", name); //storing the name in session storage
+            displayName(); //displaying the name on the page
+        }
+
+        function displayName() {
+            const name = sessionStorage.getItem("name"); //getting the name from session storage
+            document.getElementById("nameDisplay").textContent = `Hello, ${name}!`; //displaying the name on the page
+        }
+    </script>
+</body>
+</html>

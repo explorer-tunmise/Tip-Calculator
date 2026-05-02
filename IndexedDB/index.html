@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB</title>
+    <style>
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>INDEXEDDB STORAGE</h1>
+    <div>
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name">
+
+        <label for="contact">Enter your contact:</label>
+        <input type="tel" id="contact">
+
+        <button onclick="saveContact()">Save Data</button>
+
+        <table id="contacts-list">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                </tr>
+            </thead>
+            <tbody id="dataDisplay">
+                <!-- Data will be displayed here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let request = indexedDB.open("contactsDB", 1)
+
+        request.onupgradeneeded = function (event) {
+            const db = event.target.result
+
+            if (!db.objectStoreNames.contains("contacts")) {
+                db.createObjectStore("contacts", { keyPath: "id", autoIncrement: true })
+            }
+        };
+
+        request.onsuccess = function (event) {
+            const db = event.target.result
+
+            displayContacts(db)
+        }
+
+        function saveContact() {
+            const db = request.result
+
+            let name = document.getElementById("name").value
+            let phone = document.getElementById("contact").value
+
+            if (name && phone) {
+                const transaction = db.transaction(["contacts"], "readwrite")
+                const store = transaction.objectStore("contacts")
+
+                const contact = { name, phone }
+                store.add(contact)
+
+                transaction.oncomplete = function () {
+                    displayContacts(db)
+                    document.getElementById("name").value = ""
+                    document.getElementById("contact").value = ""
+                }
+            } else {
+                alert("Enter your details")
+            }
+        }
+
+
+        function displayContacts(db) {
+            const transaction = db.transaction(["contacts"], "readonly")
+            const store = transaction.objectStore("contacts")
+
+            const request = store.getAll()
+
+            request.onsuccess = function () {
+                const contacts = request.result
+                const tbody = document.getElementById("dataDisplay")
+
+                tbody.innerHTML = ""
+
+                contacts.forEach(contact => {
+                    const row = document.createElement("tr")
+                    row.innerHTML = `<td>${contact.name}</td><td>${contact.phone}</td>`
+                    tbody.appendChild(row)
+                })
+            }
+        }
+    </script>
+</body>
+
+</html>
