@@ -76,65 +76,70 @@
     </div>
 
     <script>
-        let request = indexedDB.open("contactsDB", 1)
+        // Start opening (or creating) a database called "contactsDB"
+        // This operation is asynchronous, so it returns a request object
+        // The browser will notify us later when it's ready (using events like onsuccess)
+        //The "request" word is just like a convention to indicate that the database isn't created immediately
+        //Hence any word aside from "request" can be used to. It is just there to store the result
+        const request = IndexedDB.open("contactsDB", 1)
 
-        request.onupgradeneeded = function (event) {
+
+        //Once the request is ready and possibly and upgrade to the database is needed, then
+        //fire this function
+        request.onupgradeneeded = function(event) {
             const db = event.target.result
 
-            if (!db.objectStoreNames.contains("contacts")) {
-                db.createObjectStore("contacts", { keyPath: "id", autoIncrement: true })
+            if(!db.objectStoreNames.contains("contacts")) {
+                db.createObjectStore("contacts", {keyPath: "id", autoIncrement:true })
             }
-        };
+        }
 
-        request.onsuccess = function (event) {
+
+        request.onsuccess = function(event) {
             const db = event.target.result
 
-            displayContacts(db)
+            //displayContacts(db) //any initial data should be displayed on completion of creating the database or upgrading
         }
 
         function saveContact() {
             const db = request.result
 
-            let name = document.getElementById("name").value
-            let phone = document.getElementById("contact").value
+            const name = document.getElementById("name").value
+            const phone = document.getElementById("contact").value
 
-            if (name && phone) {
+            if(name && phone) {
                 const transaction = db.transaction(["contacts"], "readwrite")
                 const store = transaction.objectStore("contacts")
 
                 const contact = { name, phone }
                 store.add(contact)
 
-                transaction.oncomplete = function () {
-                    displayContacts(db)
+                transaction.oncomplete = function() {
+                    displayContacts()
                     document.getElementById("name").value = ""
-                    document.getElementById("contact").value = ""
+                     document.getElementById("contact").value = ""
                 }
             } else {
-                alert("Enter your details")
+                alert("Enter your details, please!")
             }
         }
-
 
         function displayContacts(db) {
             const transaction = db.transaction(["contacts"], "readonly")
             const store = transaction.objectStore("contacts")
 
-            const request = store.getAll()
+            const contacts = store.getAll()
 
-            request.onsuccess = function () {
-                const contacts = request.result
+            transaction.onsuccess = function () {
                 const tbody = document.getElementById("dataDisplay")
-
                 tbody.innerHTML = ""
 
-                contacts.forEach(contact => {
-                    const row = document.createElement("tr")
-                    row.innerHTML = `<td>${contact.name}</td><td>${contact.phone}</td>`
-                    tbody.appendChild(row)
-                })
+                contacts.array.forEach(contact => {
+
+                });
             }
         }
+
     </script>
 </body>
 
